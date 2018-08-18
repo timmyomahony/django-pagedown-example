@@ -15,7 +15,7 @@ class ArtistAdmin(admin.ModelAdmin):
 @admin.register(Song)
 class SongAdmin(admin.ModelAdmin):
     formfield_overrides = {
-        models.TextField: {'widget': AdminPagedownWidget}
+        models.TextField: {'widget': AdminPagedownWidget(show_preview=False)}
     }
 
 

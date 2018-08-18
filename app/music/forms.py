@@ -7,7 +7,7 @@ from pagedown.widgets import AdminPagedownWidget, PagedownWidget
 
 class AdminAlbumForm(forms.ModelForm):
     '''An admin form for Albums'''
-    descripion = forms.CharField(widget=AdminPagedownWidget())
+    descripion = forms.CharField(widget=AdminPagedownWidget(), max_length=500)
 
     class Meta:
         model = Album
@@ -35,7 +35,7 @@ class AlbumForm(forms.ModelForm):
 class SongForm(forms.ModelForm):
     '''A form for Songs'''
     descripion = forms.CharField(widget=PagedownWidget())
-    lyrics = forms.CharField(widget=PagedownWidget())
+    lyrics = forms.CharField(widget=PagedownWidget(show_preview=False))
 
     class Meta:
         model = Song
