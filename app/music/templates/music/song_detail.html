@@ -1,0 +1,20 @@
+{% extends "music/base.html" %}
+
+{% load markdown_deux_tags %}
+
+{% block title %}Song{% endblock %}
+{% block form %}
+<h5>Title: {{ object.name }}</h5>
+<h6 class="mb-2">Album: {{ object.album.name }}</h6>
+{% if object.description %}
+    <h6 class="mb-2">Description:</h6><br>    
+    <div class="ml-3">{{ object.description|markdown }}</div>
+{% endif %}
+{% if object.lyrics %}
+    <h6 class="mb-2">Lyrics:</h6><br>
+    <div class="ml-3">{{ object.lyrics|markdown }}</div>
+{% endif %}
+<hr>
+<a class='btn btn-primary btn-sm' href="{% url 'music:songs:list' %}">Back</a>
+<a class='btn btn-sm' href="{% url 'music:songs:update' object.pk %}">Edit</a>
+{% endblock %}

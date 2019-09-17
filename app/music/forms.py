@@ -5,18 +5,37 @@ from music.models import Artist, Album, Song
 from pagedown.widgets import AdminPagedownWidget, PagedownWidget
 
 
+# Admin forms
+
 class AdminAlbumForm(forms.ModelForm):
-    '''An admin form for Albums'''
-    descripion = forms.CharField(widget=AdminPagedownWidget(), max_length=500)
+    description = forms.CharField(
+        widget=AdminPagedownWidget(),
+        max_length=500)
 
     class Meta:
         model = Album
         fields = '__all__'
 
 
+class AdminSongForm(forms.ModelForm):
+    description = forms.CharField(
+        widget=AdminPagedownWidget(),
+        max_length=500)
+    lyrics = forms.CharField(
+        widget=AdminPagedownWidget(),
+        max_length=500)
+
+    class Meta:
+        model = Song
+        fields = '__all__'
+
+
+# General forms
+
+
 class ArtistForm(forms.ModelForm):
-    '''A form for Artists'''
-    about = forms.CharField(widget=PagedownWidget())
+    about = forms.CharField(
+        widget=PagedownWidget())
 
     class Meta:
         model = Artist
@@ -24,8 +43,8 @@ class ArtistForm(forms.ModelForm):
 
 
 class AlbumForm(forms.ModelForm):
-    '''A form for Albums'''
-    descripion = forms.CharField(widget=PagedownWidget())
+    description = forms.CharField(
+        widget=PagedownWidget())
 
     class Meta:
         model = Album
@@ -33,9 +52,10 @@ class AlbumForm(forms.ModelForm):
 
 
 class SongForm(forms.ModelForm):
-    '''A form for Songs'''
-    descripion = forms.CharField(widget=PagedownWidget())
-    lyrics = forms.CharField(widget=PagedownWidget(show_preview=False))
+    description = forms.CharField(
+        widget=PagedownWidget())
+    lyrics = forms.CharField(
+        widget=PagedownWidget())
 
     class Meta:
         model = Song

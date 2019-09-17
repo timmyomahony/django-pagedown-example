@@ -1,0 +1,15 @@
+{% extends "music/base.html" %}
+
+
+{% block title %}Song List{% endblock %}
+{% block form %}
+    <ul>
+        {% for object in object_list %}
+            <li><a href="{{ object.get_absolute_url }}">{{ object.name }}</a></li>
+        {% empty %}
+            <li>No songs</li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <a href="{% url 'music:songs:create' %}" class="btn btn-primary">Add New Song</a>
+{% endblock %}

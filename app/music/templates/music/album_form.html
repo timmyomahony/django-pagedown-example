@@ -1,12 +1,16 @@
-{% extends "base.html" %}
+{% extends "music/base.html" %}
+
+{% load crispy_forms_tags %}
 
 {% block extra_head %}
   {{ form.media }}
 {% endblock %}
 
-{% block content %}
-  <form action="" method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save" />
+{% block title %}Album{% endblock %}
+{% block form %}
+  <form action="{% url 'music:albums:create' %}" method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success">Save Album</button>
   </form>
 {% endblock %}

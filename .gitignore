@@ -1,3 +1,4 @@
+.vscode
 app/pagedown
 app/db.sqlite3
 var/
