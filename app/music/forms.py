@@ -22,7 +22,7 @@ class AdminSongForm(forms.ModelForm):
         widget=AdminPagedownWidget(),
         max_length=500)
     lyrics = forms.CharField(
-        widget=AdminPagedownWidget(),
+        widget=AdminPagedownWidget(attrs={'rows': 2}),
         max_length=500)
 
     class Meta:
@@ -44,7 +44,7 @@ class ArtistForm(forms.ModelForm):
 
 class AlbumForm(forms.ModelForm):
     description = forms.CharField(
-        widget=PagedownWidget())
+        widget=PagedownWidget(attrs={'rows': 2}))
 
     class Meta:
         model = Album
