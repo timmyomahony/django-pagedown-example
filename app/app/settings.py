@@ -137,3 +137,4 @@ MEDIA_ROOT = os.path.join(os.path.split(BASE_DIR)[0], 'var/media/')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 PAGEDOWN_IMAGE_UPLOAD_ENABLED = True
+PAGEDOWN_IMAGE_UPLOAD_UNIQUE = False
